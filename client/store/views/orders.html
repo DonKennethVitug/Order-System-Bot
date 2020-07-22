@@ -1,0 +1,95 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper" style="margin-left: 0px">
+<br>
+
+<!--main-->
+<div class="container" id="main">
+   <div class="row">
+   <div class="col-md-6 col-sm-6" ng-repeat="order in oc.model.currentOrders | orderBy:'-'">
+        <div class="panel panel-default">
+          <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Order#: <span ng-bind="order.transactionnum"></span></h4></div>
+        <div class="panel-body">
+              <div class="list-group">
+                <div class="row">
+        <div class="well col-xs-12 col-sm-12 col-md-12">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <address>
+                        <strong>Generic Store - <span ng-bind="order.store_id"></span></strong>
+                        <br>
+                        <span ng-bind="order.customer_location"></span>
+                        <abbr title="Phone">P:</abbr> <span ng-bind="order.phone"></span>
+                    </address>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                    <p>
+                        <em>Date: 1st November, 2013</em>
+                    </p>
+                    <p>
+                        <em><span ng-bind="order.transaction_num"></span></em>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-center">
+                    <h1>Receipt</h1>
+                </div>
+                </span>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>#</th>
+                            <th class="text-center">Price</th>
+                            <th class="text-center">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="menu in order.menu">
+                            <td class="col-md-9"><em><span ng-bind="menu.name"></span>(<span ng-bind="menu.size"></span>)(<span ng-bind="menu.type"></span>)</em></h4></td>
+                            <td class="col-md-1" style="text-align: center"> <span ng-bind="menu.quantity"></span> </td>
+                            <td class="col-md-1 text-center">₱<span ng-bind="menu.price"></span></td>
+                            <td class="col-md-1 text-center">₱<span ng-bind="menu.price"></span></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-right">
+                            <p>
+                                <strong>Vat: </strong>
+                            </p>
+                            <p>
+                                <strong>Total less Vat: </strong>
+                            </p></td>
+                            <td class="text-center">
+                            <p>
+                                <strong>₱<span ng-bind="(order.total_price / 1.12) * 0.12 | number:2"></span></strong>
+                            </p>
+                            <p>
+                                <strong>₱<span ng-bind="(order.total_price / 1.12) | number:2"></span></strong>
+                            </p></td>
+                        </tr>
+                        <tr>
+                            <td>   </td>
+                            <td>   </td>
+                            <td class="text-right"><h4><strong>Total: </strong></h4></td>
+                            <td class="text-center text-danger"><h4><strong>₱<span ng-bind="order.total_price | number:2"></span></strong></h4></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-success btn-lg btn-block">
+                    Deliver Now   <span class="glyphicon glyphicon-chevron-right"></span>
+                </button></td>
+            </div>
+        </div>
+      </div>
+              </div>
+            </div>
+      </div>
+    
+
+  </div>
+
+  </div><!--/row-->
+  
+  <hr>
+
+</div>
